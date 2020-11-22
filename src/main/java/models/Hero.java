@@ -21,48 +21,34 @@ public class Hero {
     public static ArrayList<Hero> getInstances (){
         return instances;
     }
-
-    public static void setInstances (ArrayList<Hero> instances){
-        Hero.instances=instances;
+    public static void clearAllHeroes(){
+        instances.clear();
     }
+    public static Hero findById(int id) {return instances.get(id-1);}
 
     public int getId (){
         return id;
-    }
-
-    public void setId (int id){
-        this.id=id;
     }
 
     public String getWeakness (){
         return weakness;
     }
 
-    public void setWeakness (String weakness){
-        this.weakness=weakness;
-    }
 
     public String getPower (){
         return power;
     }
 
-    public void setPower (String power){
-        this.power=power;
-    }
 
     public int getAge (){
         return age;
     }
 
-    public void setAge (int age){
-        this.age=age;
-    }
-
     public String getName (){
-        return name;
+        return this.name;
+    }
+    public static Hero setNewHero(){
+        return new Hero("Jesus",20,"flying","swimming");
     }
 
-    public void setName (String name){
-        this.name=name;
-    }
 }
