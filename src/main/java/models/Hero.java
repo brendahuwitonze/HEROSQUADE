@@ -18,7 +18,7 @@ public class Hero {
         this.id=instances.size ();
     }
 
-    public static ArrayList<Hero> getInstances (){
+    public static ArrayList<Hero> getAllInstances (){
         return instances;
     }
     public static void clearAllHeroes(){
