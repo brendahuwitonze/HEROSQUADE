@@ -1,0 +1,16 @@
+.homepage{
+background: url('/images/sword.jpg') ;
+background-size:cover;
+height:100vh;
+}
+.card{
+ width: 320px;
+    padding: 20px;
+    background-color: rgba(245, 241, 237, 0.377);
+    height: 300px;
+}
+.sqd{
+background-color:rgb(217, 217, 217);
+background-size:cover;
+height:200vh;
+}

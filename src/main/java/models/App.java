@@ -1,12 +1,13 @@
 package models;
-//
-//import models.Hero;
-//import models.Squad;
+
+import models.Hero;
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -17,7 +18,7 @@ public class App {
 
 //        ProcessBuilder process = new ProcessBuilder();
 //        Integer port;
-//
+
 //        if (process.environment().get("PORT") != null) {
 //            port = Integer.parseInt(process.environment().get("PORT"));
 //        }else {
@@ -26,8 +27,9 @@ public class App {
 //        port(port);
 
         staticFileLocation("/public");
-        Hero.setNewHero();
-
+        Hero.setUpNewHero();
+        Hero.setUpNewHero1();
+        Squad.setUpNewSquad();
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -46,13 +48,13 @@ public class App {
             return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/new/:id",(req, res) ->{
-            Map<String, Object> model = new HashMap<>();
-            int idOfHero = Integer.parseInt(req.params(":id"));
-            Hero foundHero = Hero.findById(idOfHero);
-            model.put("hero",foundHero);
-            return new ModelAndView(model, "more.hbs");
-        }, new HandlebarsTemplateEngine());
+//        get("/new/:id",(req, res) ->{
+//            Map<String, Object> model = new HashMap<>();
+//            int idOfHero = Integer.parseInt(req.params(":id"));
+//            Hero foundHero = Hero.findById(idOfHero);
+//            model.put("hero",foundHero);
+//            return new ModelAndView(model, "more.hbs");
+//        }, new HandlebarsTemplateEngine());
 
         get("/squad-form",(req, res) ->{
             Map<String, Object> model = new HashMap<>();
@@ -72,8 +74,8 @@ public class App {
 
         post("/squad/new",(req,res)-> {
             Map<String, Object> model = new HashMap<>();
-            String squadName = req.queryParams("sqName");
-            Integer size = Integer.parseInt(req.queryParams("maxSize"));
+            String squadName = req.queryParams("squadName");
+            Integer size = Integer.parseInt(req.queryParams("size"));
             String cause = req.queryParams("cause");
             Squad newSquad = new Squad(squadName,size,cause);
             req.session().attribute("item",squadName);
@@ -94,9 +96,9 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/new/member/:sqId",(req,res)->{
+        get("/new/member/:squadId",(req,res)->{
             Map<String, Object> model = new HashMap<>();
-            req.session().attribute("selectedSquad",req.params("sqId"));
+            req.session().attribute("selectedSquad",req.params("squadId"));
             model.put("selectedSquad", req.session().attribute("selectedSquad"));
             model.put("item",1);
             return new ModelAndView(model, "success.hbs");

@@ -1,16 +1,10 @@
 {{#partial "content"}}
-    <section class="landing-pg">
-        <div class="land-left">
-        </div>
-        <div class="land-right">
-        </div>
+    <section class="homepage">
+        <div class="success" style="margin-left:100px;">
+            <h3 style="text-align:center;"><em>Success <br> <br> <span>{{ item }} </span> <br> Has been created successfully <br>{{sqId}}</em></h3>
 
-        <div class="success">
-            {{ item }}
-            <h3>Success <br>  <span>{{ item }} </span> <br> Has been created successfully <br>{{sqId}}</h3>
-
-            <a class="btns btn-green" href="/hero">View Heroes</a>
-            <a class="btns btn-green" href="/squad">View Squads</a>
+           <button style="margin-top:100px;align-item;center:"><a class="btns btn-green" href="/hero">View Heroes</a></button>
+           <button><a class="btns btn-green" href="/squad">View Squads</a></button>
         </div>
     </section>
 {{/partial}}

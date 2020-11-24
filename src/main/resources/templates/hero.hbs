@@ -1,25 +1,22 @@
 {{#partial "content"}}
-    <section class="landing-pg">
-        <div class="land-left">
-        </div>
-        <div class="land-right">
-        </div>
-        <h2> <a class="btns" href="/hero-form" >Create Your Hero</a> <br><br> CURRENT HEROES</h2>
-        <div class="heroes">
+    <section style="background-color:rgb(217, 217, 217);">
+        <div class="row">
+            <div class="col-md-4">
+        <h2 style="text-align:center;"> <a class="btns" href="/hero-form" >Create Your Hero</a><br><br> CURRENT HEROES</h2>
+
             {{#each hero}}
-                <div class="hero-item">
-                    <img src="/img/DIAMONDHEAD06_4C.png" alt="">
+               <div class="card m-2">
                     <p>Name: {{ name }} </p>
                     <p>Age: {{ age }}</p>
                     <p>Hero's power: {{ power }}</p>
                     <p>Hero's Weakness: {{ weakness }}</p>
                     <p>Id: {{ id }}</p>
-                    <a href="new/{{id}}" class="btns">Hero Stats</a>
                     <a href="/squad" class="btns">Add {{ name }} To Squad</a>
                 </div>
 
             {{/each}}
         </div>
+            </div>
     </section>
 {{/partial}}
 {{> layout.hbs}}
