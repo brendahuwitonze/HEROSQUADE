@@ -25,13 +25,13 @@
             {{#if squads}}
                <h2> Squade availabl</h2>
                 {{#each squads}}
-                    <div class="card m-2">
+                    <div class="card m-2"style="height:350px;">
                             <h1>{{ squadName }} </h1>
                             <p>Id: {{squadId}}</p>
                             <p>Purpose: {{cause}}</p>
                             <p>Max participants: {{ size }}</p>
                             <br><br>
-                           <button class="addMember add-btn" >Add New Member</button>
+                        <h3> New Member</h3>
                             {{#each squadMembers}}
                                 <div>
                                     <h5>Name: {{this.name}}</h5>
