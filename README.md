@@ -6,7 +6,7 @@ This is application allows users to  recruit a well-balanced team of superheroes
 * Java - The language used
 * Intellij Idea - Intergated development
 * Spark - Framework
-
+![image](src/main/resources/public/images/landing.png)
 Link to the project
 [herosquad](https://github.com/brendahuwitonze/HEROSQUADE)
 
