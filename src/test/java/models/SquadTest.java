@@ -1,8 +1,4 @@
 
-
-
-
-
 package models;
 
 import org.junit.Test;
@@ -18,17 +14,17 @@ public class SquadTest {
     @Test
     public void newSquad_getName_String() {
         Squad newSquad = Squad.setUpNewSquad();
-        assertEquals("Avengers",newSquad.getSquadName());
+        assertEquals("Starwars",newSquad.getSquadName());
     }
     @Test
     public void newSquad_getSize_Int() {
         Squad newSquad = Squad.setUpNewSquad();
-        assertEquals(5,newSquad.getSize());
+        assertEquals(2,newSquad.getSize());
     }
     @Test
     public void newSquad_getPower_String() {
         Squad newSquad = Squad.setUpNewSquad();
-        assertEquals("Infinity Stone",newSquad.getCause());
+        assertEquals("fighter",newSquad.getCause());
     }
     @Test
     public void newSquad_getInstances_true() {
@@ -40,24 +36,24 @@ public class SquadTest {
     @Test
     public void newSquad_getSquadMembers_Array() {
         Squad newSquad = Squad.setUpNewSquad();
-        Hero newHero = Hero.setUpNewHero();
-        Hero newHero1 = Hero.setUpNewHero1();
+        Hero newHero = Hero.setHero();
+        Hero newHero1 = Hero.setHero1();
         newSquad.setSquadMembers(newHero);
-        assertEquals("Atemba",newSquad.getSquadMembers().get(0).getName());
+        assertEquals("Brendah",newSquad.getSquadMembers().get(0).getName());
     }
 
     @Test
     public void newSquad_allTestSquadMembers_Array() {
-        Hero newHero = Hero.setUpNewHero();
+        Hero newHero = Hero.setHero();
         Squad newSquad = Squad.setUpNewSquad();
         newSquad.clearAllSquadMembers();
         newSquad.getSquadMembers().add(newHero);
         newSquad.getSquadMembers().add(newHero);
-        assertEquals("Atemba",newSquad.getSquadMembers().get(0).getName());
+        assertEquals("Brendah",newSquad.getSquadMembers().get(0).getName());
     }
     @Test
     public void addMember_addsMemberToSquad_Hero(){
-        Hero newHero = Hero.setUpNewHero();
+        Hero newHero = Hero.setHero();
         Squad testSquad = Squad.setUpNewSquad();
         Squad newSquad = Squad.findBySquadId(1);
         newSquad.clearAllSquadMembers();
@@ -69,7 +65,7 @@ public class SquadTest {
     @Test
     public void setNewMember_hero(){
         Hero.clearAllHeroes();
-        Hero newHwero = Hero.setUpNewHero();
+        Hero newHwero = Hero.setHero();
         Squad testSquad = Squad.setUpNewSquad();
         testSquad.setSquadMembers(newHwero);
 

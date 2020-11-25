@@ -1,13 +1,9 @@
 package models;
-
-import models.Hero;
-import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
@@ -16,19 +12,9 @@ public class App {
 
     public static void main(String[] args){
 
-//        ProcessBuilder process = new ProcessBuilder();
-//        Integer port;
-
-//        if (process.environment().get("PORT") != null) {
-//            port = Integer.parseInt(process.environment().get("PORT"));
-//        }else {
-//            port = 4567;
-//        }
-//        port(port);
-
         staticFileLocation("/public");
-        Hero.setUpNewHero();
-        Hero.setUpNewHero1();
+        Hero.setHero();
+        Hero.setHero1();
         Squad.setUpNewSquad();
 
         get("/", (request, response) -> {
@@ -47,14 +33,6 @@ public class App {
             model.put("hero",hero);
             return new ModelAndView(model, "hero.hbs");
         }, new HandlebarsTemplateEngine());
-
-//        get("/new/:id",(req, res) ->{
-//            Map<String, Object> model = new HashMap<>();
-//            int idOfHero = Integer.parseInt(req.params(":id"));
-//            Hero foundHero = Hero.findById(idOfHero);
-//            model.put("hero",foundHero);
-//            return new ModelAndView(model, "more.hbs");
-//        }, new HandlebarsTemplateEngine());
 
         get("/squad-form",(req, res) ->{
             Map<String, Object> model = new HashMap<>();

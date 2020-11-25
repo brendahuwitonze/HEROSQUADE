@@ -22,23 +22,35 @@ public class Hero {
         this.id = instances.size();
     }
 
-    public String getName() {return this.name;}
-    public int getAge() {return this.age;}
-    public String getPower() {return this.power;}
-    public String getWeakness() {return this.weakness;}
-    public static ArrayList<Hero> getAllInstances() {return instances;}
-    public static void clearAllHeroes(){instances.clear();}
-    public int getId(){return id;}
-    public static Hero findById(int id) {return instances.get(id-1);}
+    public String getName() {
+        return this.name;
+    }
+    public int getAge() {
+        return this.age;
+    }
+    public String getPower() {
+        return this.power;
+    }
+    public String getWeakness() {
+        return this.weakness;
+    }
+    public static ArrayList<Hero> getAllInstances() {
+        return instances;
+    }
+    public static void clearAllHeroes(){instances.clear();
+    }
+    public int getId(){
+        return id;
+    }
+    public static Hero findById(int id) {
+        return instances.get(id-1);
+    }
 
-    public static Hero setUpNewHero(){
+    public static Hero setHero(){
         return new Hero("Brendah",20,"flying","water");
     }
-    public static Hero setUpNewHero1(){
+    public static Hero setHero1(){
         return new Hero("brian",10,"water","flying");
-    }
-    public static Hero setUpNewHero2(){
-        return new Hero("joshua",20,"Night Vision","Light");
     }
 
 }
