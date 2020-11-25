@@ -15,9 +15,9 @@ public class App {
         staticFileLocation("/public");
         Hero.setHero();
         Hero.setHero1();
-        Squad.setUpNewSquad();
+        Squad.setSquad();
 
-        get("/", (request, response) -> {
+        get("/success", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
